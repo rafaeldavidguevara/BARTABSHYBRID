@@ -1,24 +1,48 @@
 package com.example.rd.acionbarapplication;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.Window;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
+
+    // Declaring our tabs and the corresponding fragments.
+    ActionBar.Tab bmwTab, fordTab, toyotaTab;
+    Fragment bmwFragmentTab = new BmwFragmentTab();
+    Fragment toyotaFragmentTab = new ToyotaFragmentTab();
+    Fragment fordFragmentTab = new FordFragmentTab();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_main);
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setLogo(R.mipmap.ic_launcher);
-        actionBar.setDisplayUseLogoEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
+
+        // Asking for the default ActionBar element that our platform supports.
+        ActionBar actionBar = getActionBar();
+
+        // Creating ActionBar tabs.
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        // Setting custom tab icons.
+        bmwTab = actionBar.newTab().setText(R.string.bmw);
+        toyotaTab = actionBar.newTab().setText(R.string.toyota);
+        fordTab = actionBar.newTab().setText(R.string.ford);
+
+        // Setting tab listeners.
+        bmwTab.setTabListener(new TabListener(bmwFragmentTab));
+        toyotaTab.setTabListener(new TabListener(toyotaFragmentTab));
+        fordTab.setTabListener(new TabListener(fordFragmentTab));
+
+        // Adding tabs to the ActionBar.
+        actionBar.addTab(bmwTab);
+        actionBar.addTab(toyotaTab);
+        actionBar.addTab(fordTab);
     }
 
     @Override

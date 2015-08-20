@@ -4,4 +4,7 @@
     <string name="action_search">Search</string>
     <string name="artist">Artist</string>
     <string name="album">Album</string>
+    <string name="bmw">BMW</string>
+    <string name="toyota">TOYOTA</string>
+    <string name="ford">FORD</string>
 </resources>
