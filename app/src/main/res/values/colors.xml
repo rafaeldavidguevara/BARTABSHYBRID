@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="actionbar_text">#EEE8CD</color>
+    <color name="tab_background">#EE7600</color>
+    <color name="tab_unselected">#EE7600</color>
+    <color name="tab_selected">#FFA500</color>
+    <color name="tab_unselected_focused">#FFA500</color>
+    <color name="tab_selected_focused">#EE7600</color>
+    <color name="tab_unselected_pressed">#FFFFFF</color>
+    <color name="tab_selected_pressed">#FFFFFF</color>
 </resources>
